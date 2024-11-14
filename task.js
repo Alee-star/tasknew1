@@ -1,4 +1,4 @@
-//Question -1 :palindrome
+//Question1 :palindrome
 function isPalindrome(str) {
     let revString = ""
     let strLowCase = str.toLowerCase()
