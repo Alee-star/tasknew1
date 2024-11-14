@@ -1,4 +1,4 @@
-//palindrome
+//Question -1 :palindrome
 function isPalindrome(str) {
     let revString = ""
     let strLowCase = str.toLowerCase()
@@ -22,7 +22,7 @@ const string2 = "english"
 isPalindrome(string1);
 isPalindrome(string2);
 
-// uniqueValues
+// Question2: uniqueValues
 function uniqueValues(array) {  
     let uniqueArray = []
     array.forEach(item=> {
@@ -38,7 +38,7 @@ const array2 = [1, 4, 5, 6, 7, 3, 4, 4, 5, 0]
 uniqueValues(array1)
 uniqueValues(array2)
 
-//fetch
+//Question3: fetch
 function fetchData(urls) {
     const fetchurl = urls.map(url => 
         fetch(url) 
@@ -57,7 +57,7 @@ const urlsFetch = [
 ]
 fetchData(urlsFetch)
 
-//deep clone(using json.parse and stringify)
+//question4: deep clone(using json.parse and stringify)
 function deepclone(obj) {
     return JSON.parse(JSON.stringify(obj))
 }
@@ -72,17 +72,34 @@ let Obj1 = {
 console.log(deepclone(Obj1.place))
 console.log(deepclone(Obj1.attractions))
 
-//counter
-// let count = 0
-// let counter = function() {
-//     return {
-//         function increment() {
+//Question5: counter
+const incrementBtn = document.getElementById('increment')
+const decrementBtn = document.getElementById('decrement')
+const counterBtn = document.getElementById('counter')
 
-//         }
-//     }
-// }();
+function counter() {
+    let count = 0
+    function ClosureInc() {
+        incrementBtn.addEventListener('click', () => {
+            count++
+            counterBtn.innerHTML = count
+            console.log(count)
+        })
+    }
+    function ClosureDec() {
+        decrementBtn.addEventListener('click', () => {
+            count--
+            counterBtn.innerHTML = count
+            console.log(count)
+        })
+    }
+    return{ClosureInc, ClosureDec}
+};       
+const mainFun = counter();
+mainFun.ClosureDec()
+mainFun.ClosureInc()
 
-//safeParse
+//Question6: safeParse
 function safeParse(jsonString) {
     if(!typeof jsonString == "string") {
         console.log("Error! Not valid}")
@@ -100,7 +117,7 @@ let string4 = '[name: "Aleena". dept: "ec"]'
 safeParse(string3)
 safeParse(string4)
 
-//sum
+//Question7: sum
 function findTwoSum(nums, target) {
     for(let i = 0; i < nums.length; i ++) {
         for( let j = i + 1 ; j < nums.length ; j++) {
